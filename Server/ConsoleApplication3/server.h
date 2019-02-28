@@ -22,7 +22,31 @@ using std::uniform_int_distribution;
 
 #include <string>
 #include <stdexcept>
-
+#define BUF_SIZE 4096
 #define SERVER_PORT 11235  // server port number
 
+
+class Server
+{
+public:
+	void CreateSocket();
+	void ConnectClient();
+	void Communication();
+	void ErrorHandling();
+	Server();
+	~Server();
+private:
+	/*
+	WORD --> unsigned short
+	WSADATA --> Windows 소켓 초기화 정보 저장 구조체
+	SOCKADDR_IN --> sockaddr 구조체에서 sa_family가 AF_INET인 경우 사용하는 구조체
+	*/
+	WORD wVersionRequested;
+	WSADATA wsaData;
+	SOCKADDR_IN servAddr, cliAddr; //Socket address information
+	SOCKET server, client;
+	int            err;
+	int            bytesSent;
+	char        buf[BUF_SIZE];
+};
 #endif // !SERVER_MAIN_H

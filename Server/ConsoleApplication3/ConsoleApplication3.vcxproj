@@ -144,7 +144,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ex.cpp" />
     <ClCompile Include="socketexample.cpp" />
   </ItemGroup>
   <ItemGroup>
